@@ -5,9 +5,9 @@ const cors = require("cors");
 const db = mysql.createConnection({
   host: "localhost",
   port: 3306,
-  user: "your_username",
-  password: "your_password",
-  database: "your_database_name",
+  user: "root",
+  password: "admin",
+  database: "express_react_aws_task",
 });
 
 db.connect((err) => {
@@ -27,7 +27,7 @@ app.get("/", (req, res) => {
   res.json({ status: 200, message: "Succeed" });
 });
 
-app.get("/items", (req, res) => {
+app.get("/todos", (req, res) => {
   const sql = "SELECT * FROM todos";
   db.query(sql, (err, results) => {
     if (err) {
